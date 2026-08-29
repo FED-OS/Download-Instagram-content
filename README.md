@@ -1,5 +1,6 @@
-[README.md](https://github.com/user-attachments/files/31596381/README.md)
 # 🎞️ FED-GRAM
+
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/W3T61ZU5FS)
 
 A universal social media downloader built with Python and Streamlit. Paste a link from **any** popular social media platform and FED-GRAM auto-detects the site, fetches the media (images, videos, carousels, albums, audio), previews it, and gives you one-click downloads — all from a single web interface.
 
