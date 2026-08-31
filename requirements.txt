@@ -1,5 +1,4 @@
-streamlit>=1.30
-instaloader>=5.3
-requests>=2.31
-yt-dlp>=2024.0.0
-Pillow>=10.0.0
+streamlit==1.62.0
+instaloader==4.15.3
+requests>=2.32.0,<3
+Pillow>=10.0.0,<13
