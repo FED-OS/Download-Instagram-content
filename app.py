@@ -6,7 +6,7 @@ import time
 import streamlit as st
 
 from downloaders import detect_platform, PLATFORMS, resolve, DownloadResult, MediaItem
-from downloaders import ytdlp_engine
+from downloaders import ytdlp_engine as _ytdlp_engine
 
 
 # ---------------------------------------------------------------------------
@@ -81,24 +81,27 @@ with st.sidebar:
         "you&rsquo;re not a bot&rdquo; message. Upload a **cookies.txt** file "
         "(Netscape format, exported with a browser extension) to bypass this."
     )
-    cookies_file = st.file_uploader(
-        "cookies.txt",
-        type=["txt"],
-        label_visibility="collapsed",
-        key="cookies_uploader",
-    )
-    if cookies_file is not None:
-        cookies_path = os.path.join(tempfile.gettempdir(), "fedgram_cookies.txt")
-        try:
-            with open(cookies_path, "wb") as fh:
-                fh.write(cookies_file.getvalue())
-            ytdlp_engine.set_cookies_file(cookies_path)
-            st.success("✅ Cookies loaded — YouTube downloads enabled.")
-        except Exception as exc:
-            st.error(f"Couldn't save cookies file: {exc}")
-            ytdlp_engine.set_cookies_file(None)
+    if _ytdlp_engine is None:
+        st.warning("yt-dlp is not installed — video downloads are unavailable until you add `yt-dlp` to requirements.txt and redeploy.")
     else:
-        ytdlp_engine.set_cookies_file(None)
+        cookies_file = st.file_uploader(
+            "cookies.txt",
+            type=["txt"],
+            label_visibility="collapsed",
+            key="cookies_uploader",
+        )
+        if cookies_file is not None:
+            cookies_path = os.path.join(tempfile.gettempdir(), "fedgram_cookies.txt")
+            try:
+                with open(cookies_path, "wb") as fh:
+                    fh.write(cookies_file.getvalue())
+                _ytdlp_engine.set_cookies_file(cookies_path)
+                st.success("✅ Cookies loaded — YouTube downloads enabled.")
+            except Exception as exc:
+                st.error(f"Couldn't save cookies file: {exc}")
+                _ytdlp_engine.set_cookies_file(None)
+        else:
+            _ytdlp_engine.set_cookies_file(None)
     st.divider()
     st.caption("⚠️ For personal use with public content only. Respect each platform's Terms of Service and copyright.")
 
