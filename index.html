@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="FED-GRAM — Download images & videos from every popular social media site. 18+ platforms, auto-detection, one-click downloads. Free, open-source, self-hostable.">
+    <meta property="og:title" content="FED-GRAM — Universal Social Media Downloader">
+    <meta property="og:description" content="Download images & videos from 18+ social platforms — all in one place. Free, open-source, self-hostable.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="images/social-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="FED-GRAM — Universal Social Media Downloader">
+    <meta name="twitter:description" content="Download images & videos from 18+ social platforms — all in one place.">
+    <meta name="twitter:image" content="images/social-image.png">
+    <title>FED-GRAM — Universal Social Media Downloader</title>
+    <link rel="icon" type="image/png" href="images/social-image.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
+</head>
+<body>
+
+<!-- ===== Animated Background ===== -->
+<div class="bg-orbs">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+    <div class="orb orb-4"></div>
+</div>
+<div class="bg-grid"></div>
+
+<!-- ===== Navigation ===== -->
+<nav class="navbar" id="navbar">
+    <div class="nav-inner">
+        <a href="#" class="nav-logo">
+            <span class="nav-logo-icon">🎞️</span>
+            FED-GRAM
+        </a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#features">Features</a></li>
+            <li><a href="#how-it-works">How It Works</a></li>
+            <li><a href="#platforms">Platforms</a></li>
+            <li><a href="#architecture">Architecture</a></li>
+            <li><a href="#quick-start">Quick Start</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#quick-start" class="nav-cta">Get Started</a></li>
+        </ul>
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu">☰</button>
+    </div>
+</nav>
+
+<!-- ===== Hero ===== -->
+<section class="hero" id="hero">
+    <div class="container">
+        <div class="hero-badge">
+            <span class="pulse-dot"></span>
+            Open Source · MIT Licensed · v1.1.0
+        </div>
+        <h1>
+            Download from <span class="gradient-text">every platform</span><br>
+            in one place.
+        </h1>
+        <p class="hero-tagline">
+            FED-GRAM is a lightweight, self-hostable web app that lets you paste a link from <strong>18+ social platforms</strong> and instantly preview and download images, videos, GIFs, and albums — no extensions, no ads, no telemetry.
+        </p>
+        <div class="hero-cta-group">
+            <a href="#quick-start" class="btn btn-primary">
+                🚀 Get Started
+            </a>
+            <a href="#demo" class="btn btn-secondary">
+                👀 See It In Action
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- ===== Platform Marquee ===== -->
+<div class="platform-marquee">
+    <div class="marquee-track" id="marqueeTrack">
+        <!-- Populated by JS -->
+    </div>
+</div>
+
+<!-- ===== Stats Bar ===== -->
+<section style="padding: 60px 0 40px;">
+    <div class="container">
+        <div class="stats-bar reveal">
+            <div class="stat-item">
+                <div class="stat-number gradient-text" data-target="18">0</div>
+                <div class="stat-label">Platforms Supported</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number gradient-text" data-target="6">0</div>
+                <div class="stat-label">Specialized Engines</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number gradient-text" data-target="100" data-suffix="%">0</div>
+                <div class="stat-label">Free & Open Source</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number gradient-text" data-target="0" data-suffix=" telemetry">0</div>
+                <div class="stat-label">Ads or Tracking</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== Features ===== -->
+<section id="features">
+    <div class="container">
+        <div class="section-header reveal">
+            <span class="section-label">Features</span>
+            <h2>Everything you need, <span class="gradient-text">nothing you don't</span></h2>
+            <p>Built for speed, privacy, and simplicity. FED-GRAM gives you clean downloads without the bloat.</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card reveal">
+                <div class="feature-icon">🔗</div>
+                <h3>Auto Platform Detection</h3>
+                <p>Paste any link — FED-GRAM figures out the platform using smart domain-label-boundary matching and routes it to the right engine automatically.</p>
+            </div>
+            <div class="feature-card reveal">
+                <div class="feature-icon">📦</div>
+                <h3>Batch ZIP Downloads</h3>
+                <p>Multi-item results like Instagram carousels or Reddit galleries can be grabbed as a single ZIP file with one click — no manual saving.</p>
+            </div>
+            <div class="feature-card reveal">
+                <div class="feature-icon">🍪</div>
+                <h3>Optional Cookies Support</h3>
+                <p>Upload a cookies.txt file for YouTube age-restricted content or bot-detected videos. Your cookies stay local — never uploaded anywhere.</p>
+            </div>
+            <div class="feature-card reveal">
+                <div class="feature-icon">🔒</div>
+                <h3>Private & Local</h3>
+                <p>Runs entirely on your machine. No data leaves your browser except the fetch to the source platform. Zero telemetry, zero ads, zero tracking.</p>
+            </div>
+            <div class="feature-card reveal">
+                <div class="feature-icon">🎬</div>
+                <h3>All Media Types</h3>
+                <p>Single images, carousels, albums, videos, GIFs, and audio — FED-GRAM handles them all with a uniform DownloadResult data model.</p>
+            </div>
+            <div class="feature-card reveal">
+                <div class="feature-icon">🧩</div>
+                <h3>Pluggable Engine Architecture</h3>
+                <p>Each platform has its own engine with a simple can_handle / download interface. Adding a new platform is as easy as dropping in a new file.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== How It Works ===== -->
+<section id="how-it-works" style="background: rgba(10, 14, 39, 0.3);">
+    <div class="container">
+        <div class="section-header reveal">
+            <span class="section-label">How It Works</span>
+            <h2>Three steps. <span class="gradient-text">That's it.</span></h2>
+            <p>No complicated setup, no browser extensions, no command-line gymnastics.</p>
+        </div>
+        <div class="steps-container">
+            <div class="step-item reveal">
+                <div class="step-number">1</div>
+                <h3>Paste a Link</h3>
+                <p>Copy any URL from a supported social platform and paste it into the FED-GRAM input bar. That's all the input it needs.</p>
+            </div>
+            <div class="step-item reveal">
+                <div class="step-number">2</div>
+                <h3>Auto-Detect & Route</h3>
+                <p>FED-GRAM identifies the platform, selects the right engine, and fetches the media — whether it's an Instagram carousel or a YouTube video.</p>
+            </div>
+            <div class="step-item reveal">
+                <div class="step-number">3</div>
+                <h3>Preview & Download</h3>
+                <p>See a clean grid of all detected media. Download individual items or grab everything as a ZIP. Done in seconds.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== Demo / App Preview ===== -->
+<section id="demo">
+    <div class="container">
+        <div class="section-header reveal">
+            <span class="section-label">Live Preview</span>
+            <h2>See <span class="gradient-text">FED-GRAM</span> in action</h2>
+            <p>A clean, intuitive interface that works the same way across every platform.</p>
+        </div>
+        <div class="demo-wrapper reveal">
+            <div class="demo-window">
+                <div class="demo-titlebar">
+                    <span class="demo-dot red"></span>
+                    <span class="demo-dot yellow"></span>
+                    <span class="demo-dot green"></span>
+                    <span class="demo-url">localhost:8501</span>
+                </div>
+                <div class="demo-body">
+                    <div class="demo-input-row">
+                        <div class="demo-input">
+                            <span class="demo-typed"></span><span class="cursor"></span>
+                        </div>
+                        <div class="demo-btn">⚡ Download</div>
+                    </div>
+                    <div class="demo-detected">
+                        ✅ Detected: Instagram · 3 media items found
+                    </div>
+                    <div class="demo-media-grid">
+                        <div class="demo-media-card">
+                            <div class="demo-media-thumb bg-grad-1">
+                                🖼️
+                            </div>
+                            <div class="demo-media-info">
+                                <div class="demo-media-type">Image · JPG</div>
+                            </div>
+                        </div>
+                        <div class="demo-media-card">
+                            <div class="demo-media-thumb bg-grad-2">
+                                🎬
+                                <span class="play-overlay">▶</span>
+                            </div>
+                            <div class="demo-media-info">
+                                <div class="demo-media-type">Video · MP4</div>
+                            </div>
+                        </div>
+                        <div class="demo-media-card">
+                            <div class="demo-media-thumb bg-grad-3">
+                                🖼️
+                            </div>
+                            <div class="demo-media-info">
+                                <div class="demo-media-type">Image · JPG</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="demo-download-row">
+                        <div class="demo-dl-btn primary">📦 Download All (ZIP)</div>
+                        <div class="demo-dl-btn">⬇️ Download Individual</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== Platforms Grid ===== -->
+<section id="platforms" style="background: rgba(10, 14, 39, 0.3);">
+    <div class="container">
+        <div class="section-header reveal">
+            <span class="section-label">Supported Platforms</span>
+            <h2>18+ platforms and <span class="gradient-text">counting</span></h2>
+            <p>From Instagram to YouTube, TikTok to Reddit — all your favorites in one tool.</p>
+        </div>
+        <div class="platform-grid" id="platformGrid">
+            <!-- Populated by JS -->
+        </div>
+    </div>
+</section>
+
+<!-- ===== Architecture ===== -->
+<section id="architecture">
+    <div class="container">
+        <div class="section-header reveal">
+            <span class="section-label">Under the Hood</span>
+            <h2>A clean <span class="gradient-text">detector → router → engine</span> pipeline</h2>
+            <p>Designed for extensibility. Adding a new platform means writing one file — nothing else changes.</p>
+        </div>
+        <div class="arch-container reveal">
+            <div class="arch-flow">
+                <div class="arch-node">
+                    <div class="arch-node-icon">🔍</div>
+                    <h4>Detector</h4>
+                    <p>Matches URL domain to a canonical platform key using label-boundary awareness</p>
+                </div>
+                <div class="arch-arrow">→</div>
+                <div class="arch-node">
+                    <div class="arch-node-icon">🧭</div>
+                    <h4>Router</h4>
+                    <p>Iterates ordered engine chain; first engine whose can_handle() wins</p>
+                </div>
+                <div class="arch-arrow">→</div>
+                <div class="arch-node">
+                    <div class="arch-node-icon">⚙️</div>
+                    <h4>Engine</h4>
+                    <p>Fetches media, returns uniform DownloadResult with MediaItem objects</p>
+                </div>
+            </div>
+            <div class="arch-engines">
+                <div class="arch-engines-title">Engine Chain (ordered)</div>
+                <div class="arch-engine-chips">
+                    <span class="arch-chip">instagram_engine</span>
+                    <span class="arch-chip">pinterest_engine</span>
+                    <span class="arch-chip">imgur_engine</span>
+                    <span class="arch-chip">tumblr_engine</span>
+                    <span class="arch-chip">threads_engine</span>
+                    <span class="arch-chip">ytdlp_engine</span>
+                    <span class="arch-chip fallback-chip">generic_engine (always last)</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== Quick Start ===== -->
+<section id="quick-start" style="background: rgba(10, 14, 39, 0.3);">
+    <div class="container">
+        <div class="section-header reveal">
+            <span class="section-label">Quick Start</span>
+            <h2>Up and running in <span class="gradient-text">under a minute</span></h2>
+            <p>Three commands. No build step. No configuration files.</p>
+        </div>
+        <div class="reveal" style="max-width: 760px; margin: 0 auto;">
+            <div class="code-tabs">
+                <button class="code-tab active" data-tab="local">💻 Local</button>
+                <button class="code-tab" data-tab="cloud">☁️ Streamlit Cloud</button>
+                <button class="code-tab" data-tab="docker">🐳 Docker</button>
+            </div>
+            <div class="code-block-wrapper">
+                <div class="code-block active" id="tab-local">
+<button class="copy-btn" onclick="copyCode('tab-local')">📋 Copy</button><span class="comment"># Clone the repository</span>
+<span class="prompt">$</span> git clone https://github.com/FED-OS/FED-GRAM.git
+<span class="prompt">$</span> <span class="cmd">cd</span> FED-GRAM
+
+<span class="comment"># Install dependencies</span>
+<span class="prompt">$</span> pip install -r requirements.txt
+
+<span class="comment"># Launch the app</span>
+<span class="prompt">$</span> streamlit run app.py
+
+<span class="comment"># Opens at http://localhost:8501 ✨</span>
+                </div>
+                <div class="code-block" id="tab-cloud">
+<button class="copy-btn" onclick="copyCode('tab-cloud')">📋 Copy</button><span class="comment"># 1. Push this repo to GitHub</span>
+
+<span class="comment"># 2. Go to share.streamlit.io and sign in</span>
+<span class="comment">#    with your GitHub account</span>
+
+<span class="comment"># 3. Click "New app" → select this repo</span>
+<span class="comment">#    → set main file to app.py</span>
+
+<span class="comment"># 4. Click Deploy 🚀</span>
+
+<span class="comment"># Your app goes live at</span>
+<span class="comment"># your-app-name.streamlit.app</span>
+                </div>
+                <div class="code-block" id="tab-docker">
+<button class="copy-btn" onclick="copyCode('tab-docker')">📋 Copy</button><span class="comment"># Build the image</span>
+<span class="prompt">$</span> docker build -t fed-gram .
+
+<span class="comment"># Run on port 8501</span>
+<span class="prompt">$</span> docker run -p <span class="flag">8501:8501</span> fed-gram
+
+<span class="comment"># Or with docker-compose</span>
+<span class="prompt">$</span> docker-compose up -d
+
+<span class="comment"># App available at http://localhost:8501</span>
+                </div>
+            </div>
+            <p style="text-align: center; margin-top: 20px; color: var(--text-muted); font-size: 0.9rem;">
+                💡 For full video support (YouTube, TikTok, Twitch), install <code>ffmpeg</code> — <code>sudo apt install ffmpeg</code> or <code>brew install ffmpeg</code>
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- ===== Tech Stack ===== -->
+<section id="tech-stack">
+    <div class="container">
+        <div class="section-header reveal">
+            <span class="section-label">Built With</span>
+            <h2>Powered by <span class="gradient-text">best-in-class tools</span></h2>
+            <p>FED-GRAM stands on the shoulders of open-source giants.</p>
+        </div>
+        <div class="tech-grid">
+            <div class="tech-card reveal">
+                <div class="tech-emoji">🌊</div>
+                <h4>Streamlit</h4>
+                <p>Web UI framework</p>
+            </div>
+            <div class="tech-card reveal">
+                <div class="tech-emoji">📸</div>
+                <h4>instaloader</h4>
+                <p>Instagram backend</p>
+            </div>
+            <div class="tech-card reveal">
+                <div class="tech-emoji">⬇️</div>
+                <h4>yt-dlp</h4>
+                <p>Video download engine</p>
+            </div>
+            <div class="tech-card reveal">
+                <div class="tech-emoji">🌐</div>
+                <h4>Requests</h4>
+                <p>HTTP scraping</p>
+            </div>
+            <div class="tech-card reveal">
+                <div class="tech-emoji">🖼️</div>
+                <h4>Pillow</h4>
+                <p>Image processing</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== Social Preview Image ===== -->
+<section style="padding: 60px 0;">
+    <div class="container">
+        <div class="section-header reveal">
+            <span class="section-label">Brand Assets</span>
+            <h2>Social <span class="gradient-text">preview image</span></h2>
+            <p>Ready-to-use Open Graph image for link sharing on social platforms.</p>
+        </div>
+        <div class="social-preview reveal">
+            <img src="images/social-image.png" alt="FED-GRAM social preview image — Universal Social Media Downloader">
+        </div>
+    </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section id="faq" style="background: rgba(10, 14, 39, 0.3);">
+    <div class="container">
+        <div class="section-header reveal">
+            <span class="section-label">FAQ</span>
+            <h2>Frequently asked <span class="gradient-text">questions</span></h2>
+            <p>Everything you might want to know before getting started.</p>
+        </div>
+        <div class="faq-container reveal">
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    Is FED-GRAM free to use?
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        Yes, completely. FED-GRAM is open-source under the MIT license. You can run it locally for free, deploy it on Streamlit Community Cloud for free, or host it on your own server. There are no premium tiers, no feature gates, and no telemetry.
+                    </div>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    Does FED-GRAM store my downloads or browsing data?
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        No. FED-GRAM runs entirely on your machine (or your own server). The only network traffic is the fetch to the source platform to retrieve media. Nothing is sent to any third-party server, and there is no analytics or tracking built in. Downloaded files are saved to a temporary working directory that you control.
+                    </div>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    Why do some YouTube videos fail to download?
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        YouTube sometimes blocks automated requests with a bot-detection wall, especially for age-restricted or region-locked content. FED-GRAM lets you upload a cookies.txt file (exported from your browser using an extension like "Get cookies.txt") to authenticate as a real user. This bypasses most bot walls. Also ensure ffmpeg is installed for stream merging.
+                    </div>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    Can I add support for a new platform?
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        Absolutely. The engine architecture is designed for extensibility. Create a new file in the downloaders/ package, implement two methods — can_handle(platform) returning a bool, and download(url, platform, dest_dir) returning a DownloadResult — then register it in the engine chain. Check the Engine Development Guide in the wiki and the add-platform-engine prompt in the prompts/ directory for step-by-step instructions.
+                    </div>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    What about private or login-required content?
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        FED-GRAM can only access publicly available content. Private Instagram accounts, members-only YouTube videos (without cookies), and login-walled platforms will not work. The cookies upload feature helps with some authenticated content on YouTube, but FED-GRAM is fundamentally a public-content downloader. Always respect platform terms of service and copyright laws.
+                    </div>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    Is downloading social media content legal?
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        Downloading publicly available content for personal use is generally legal in most jurisdictions, but laws vary. FED-GRAM is a tool — you are responsible for how you use it. Always respect copyright, platform terms of service, and creator rights. Do not redistribute downloaded content without permission. See the NOTICE.md and SECURITY.md files for more guidance.
+                    </div>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    What's the generic fallback engine?
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        The generic_engine is always last in the engine chain and its can_handle() always returns True. It acts as a catch-all — if no specialized engine handles a URL, the generic engine tries to scrape og:image and og:video meta tags or handle direct media links. This means even unsupported platforms often yield results for single-image or single-video content.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section class="cta-section">
+    <div class="container">
+        <div class="cta-card reveal">
+            <h2>Ready to <span class="gradient-text">download everything?</span></h2>
+            <p>Get FED-GRAM running in under a minute. Free, open-source, and yours to keep.</p>
+            <div class="hero-cta-group">
+                <a href="#quick-start" class="btn btn-primary">🚀 Quick Start Guide</a>
+                <a href="https://github.com/FED-OS/FED-GRAM" class="btn btn-secondary" target="_blank" rel="noopener">📦 View on GitHub</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== Footer ===== -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <a href="#" class="nav-logo">
+                    <span class="nav-logo-icon">🎞️</span>
+                    FED-GRAM
+                </a>
+                <p>A lightweight, self-hostable social media downloader supporting 18+ platforms. Built with Streamlit, yt-dlp, and instaloader.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Project</h4>
+                <ul>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#platforms">Platforms</a></li>
+                    <li><a href="#architecture">Architecture</a></li>
+                    <li><a href="#quick-start">Quick Start</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="https://github.com/FED-OS/FED-GRAM/wiki" target="_blank" rel="noopener">Wiki</a></li>
+                    <li><a href="https://github.com/FED-OS/FED-GRAM/blob/main/CHANGELOG.md" target="_blank" rel="noopener">Changelog</a></li>
+                    <li><a href="https://github.com/FED-OS/FED-GRAM/blob/main/ROADMAP.md" target="_blank" rel="noopener">Roadmap</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Community</h4>
+                <ul>
+                    <li><a href="https://github.com/FED-OS/FED-GRAM" target="_blank" rel="noopener">GitHub</a></li>
+                    <li><a href="https://github.com/FED-OS/FED-GRAM/discussions" target="_blank" rel="noopener">Discussions</a></li>
+                    <li><a href="https://github.com/FED-OS/FED-GRAM/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener">Contributing</a></li>
+                    <li><a href="https://ko-fi.com/YOUR_USERNAME" target="_blank" rel="noopener">Support Us ☕</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2024 FED-GRAM · MIT License · Built with ❤️ by the open-source community</p>
+            <div class="footer-links">
+                <a href="https://github.com/FED-OS/FED-GRAM/blob/main/LICENSE" target="_blank" rel="noopener">License</a>
+                <a href="https://github.com/FED-OS/FED-GRAM/blob/main/SECURITY.md" target="_blank" rel="noopener">Security</a>
+                <a href="https://github.com/FED-OS/FED-GRAM/blob/main/CODE_OF_CONDUCT.md" target="_blank" rel="noopener">Code of Conduct</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- ===== JavaScript ===== -->
+<script src="js/script.js"></script>
+</body>
+</html>
