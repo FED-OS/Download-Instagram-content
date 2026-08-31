@@ -5,7 +5,9 @@
 A universal social media downloader built with Python and Streamlit. Paste a link from **any** popular social media platform and FED-GRAM auto-detects the site, fetches the media (images, videos, carousels, albums, audio), previews it, and gives you one-click downloads — all from a single web interface.
 
 v1: https://fed-gram-67erpbx6pmtkenc5hjczwc.streamlit.app/
-v2:
+
+v2:https://download-instagram-content-khdgkvsaancfxu2zddhfyi.streamlit.app/
+
 v3: https://fed-gram-download-instagram-content-yfergqmofa9rckmn2uo7jw.streamlit.app/
 
 > Originally a small Instagram-only image downloader, FED-GRAM has been upgraded into a multi-platform tool covering **18+ popular social media sites**.
