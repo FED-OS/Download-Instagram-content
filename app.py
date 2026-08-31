@@ -6,6 +6,7 @@ import time
 import streamlit as st
 
 from downloaders import detect_platform, PLATFORMS, resolve, DownloadResult, MediaItem
+from downloaders import ytdlp_engine
 
 
 # ---------------------------------------------------------------------------
@@ -73,6 +74,31 @@ with st.sidebar:
         "the site, fetches the media (images, videos, carousels & albums), "
         "and gives you one-click downloads."
     )
+    st.divider()
+    st.markdown("#### 🍪 YouTube cookies (optional)")
+    st.write(
+        "YouTube sometimes blocks downloads with a &ldquo;sign in to confirm "
+        "you&rsquo;re not a bot&rdquo; message. Upload a **cookies.txt** file "
+        "(Netscape format, exported with a browser extension) to bypass this."
+    )
+    cookies_file = st.file_uploader(
+        "cookies.txt",
+        type=["txt"],
+        label_visibility="collapsed",
+        key="cookies_uploader",
+    )
+    if cookies_file is not None:
+        cookies_path = os.path.join(tempfile.gettempdir(), "fedgram_cookies.txt")
+        try:
+            with open(cookies_path, "wb") as fh:
+                fh.write(cookies_file.getvalue())
+            ytdlp_engine.set_cookies_file(cookies_path)
+            st.success("✅ Cookies loaded — YouTube downloads enabled.")
+        except Exception as exc:
+            st.error(f"Couldn't save cookies file: {exc}")
+            ytdlp_engine.set_cookies_file(None)
+    else:
+        ytdlp_engine.set_cookies_file(None)
     st.divider()
     st.caption("⚠️ For personal use with public content only. Respect each platform's Terms of Service and copyright.")
 
